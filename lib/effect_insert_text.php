@@ -18,7 +18,7 @@ class rex_effect_insert_text extends rex_effect_abstract
         $gdImage = $this->media->getImage();
 
         // Transparenz erhalten (für GIF, PNG & WebP)
-        $this->keepTransparent($output);
+        $this->keepTransparent($gdImage);
 
         // Text
         $text = 'Text einfügen';
