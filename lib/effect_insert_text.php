@@ -10,7 +10,7 @@ class rex_effect_insert_text extends rex_effect_abstract
         $this->media->asImage();
 
         // -------------------------------------- CONFIG
-        $fontFile = rex_path::media($this->params['font']);
+        $fontFile = rex_path::media($this->params['font_file']);
         if (!file_exists($fontFile) || !is_file($fontFile)) {
             return;
         }
@@ -188,7 +188,7 @@ class rex_effect_insert_text extends rex_effect_abstract
             ],
             [
                 'label' => 'Schriftdatei',
-                'name' => 'font',
+                'name' => 'font_file',
                 'type' => 'media',
                 'default' => '',
             ],
