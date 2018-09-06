@@ -179,12 +179,17 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'name' => 'text',
                 'type' => 'string',
                 'default' => '',
+                'attributes' => ['required' => 'required'],
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_font_size'),
                 'name' => 'font_size',
                 'type' => 'int',
                 'default' => 12,
+                'attributes' => [
+                    'required' => 'required',
+                    'pattern' => '[0-9]+',
+                ],
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_font_file'),
@@ -197,18 +202,21 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'name' => 'color_r',
                 'type' => 'int',
                 'default' => 0,
+                'attributes' => ['pattern' => '[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]'],
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_color_g'),
                 'name' => 'color_g',
                 'type' => 'int',
                 'default' => 0,
+                'attributes' => ['pattern' => '[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]'],
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_color_b'),
                 'name' => 'color_b',
                 'type' => 'int',
                 'default' => 0,
+                'attributes' => ['pattern' => '[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]'],
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_hpos'),
@@ -231,12 +239,14 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'name' => 'padding_x',
                 'type' => 'int',
                 'default' => 0,
+                'attributes' => ['pattern' => '[0-9]+'],
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_padding_y'),
                 'name' => 'padding_y',
                 'type' => 'int',
                 'default' => 0,
+                'attributes' => ['pattern' => '[0-9]+'],
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_antialiasing'),
