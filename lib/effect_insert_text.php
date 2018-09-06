@@ -202,6 +202,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'name' => 'font_file',
                 'type' => 'media',
                 'default' => '',
+                'suffix' => '<small class="form-text text-muted">.ttf, .otf</small>',
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_color_r'),
