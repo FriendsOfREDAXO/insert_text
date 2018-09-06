@@ -6,6 +6,7 @@ media_manager_effect_insert_text_font_file = Schriftdatei
 media_manager_effect_insert_text_color_r = Schriftfarbe (Rot)
 media_manager_effect_insert_text_color_g = Schriftfarbe (Grün)
 media_manager_effect_insert_text_color_b = Schriftfarbe (Blau)
+media_manager_effect_insert_text_alpha = Transparenz
 media_manager_effect_insert_text_hpos = Horizontale Ausrichtung
 media_manager_effect_insert_text_vpos = Vertikale Ausrichtung
 media_manager_effect_insert_text_padding_x = Horizontaler Abstand zum Rand

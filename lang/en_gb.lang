@@ -6,6 +6,7 @@ media_manager_effect_insert_text_font_file = Font file
 media_manager_effect_insert_text_color_r = Font color (red)
 media_manager_effect_insert_text_color_g = Font color (green)
 media_manager_effect_insert_text_color_b = Font color (blue)
+media_manager_effect_insert_text_alpha = Transparency
 media_manager_effect_insert_text_hpos = Horizontal position
 media_manager_effect_insert_text_vpos = Vertical position
 media_manager_effect_insert_text_padding_x = Horizontal padding

@@ -46,6 +46,12 @@ class rex_effect_insert_text extends rex_effect_abstract
             $color[2] = (int) $this->params['color_b'];
         }
 
+        // Transparency
+        $alpha = 0;
+        if (isset($this->params['alpha'])) {
+            $alpha = (int) $this->params['alpha'];
+        }
+
         // Abstand vom Rand
         $padding = [0, 0];
         if (isset($this->params['padding_x'])) {
@@ -129,7 +135,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 0,
                 0,
                 ($boxHeight - $fixHeight) * $antialiasing,
-                imagecolorallocate($gdTemp, $color[0], $color[1], $color[2]),
+                imagecolorallocatealpha($gdTemp, $color[0], $color[1], $color[2], $alpha),
                 $fontFile,
                 $text
             );
@@ -159,7 +165,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 0,
                 $dstX + $padding[0],
                 $dstY + $padding[1] + $boxHeight - $fixHeight,
-                imagecolorallocate($gdImage, $color[0], $color[1], $color[2]),
+                imagecolorallocatealpha($gdImage, $color[0], $color[1], $color[2], $alpha),
                 $fontFile,
                 $text
             );
@@ -220,6 +226,14 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'default' => 0,
                 'attributes' => ['pattern' => '[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]'],
                 'suffix' => '<small class="form-text text-muted">0 - 255</small>',
+            ],
+            [
+                'label' => rex_i18n::msg('media_manager_effect_insert_text_alpha'),
+                'name' => 'alpha',
+                'type' => 'int',
+                'default' => 127,
+                'attributes' => ['pattern' => '[0-9]|[0-9][0-9]|1[0-2][0-7]'],
+                'suffix' => '<small class="form-text text-muted">0 - 127</small>',
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_hpos'),
