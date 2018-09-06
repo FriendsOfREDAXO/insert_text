@@ -86,7 +86,12 @@ class rex_effect_insert_text extends rex_effect_abstract
 
         // -------------------------------------- /CONFIG
 
-        $box = imagettfbbox($fontSize, 0, $fontFile, $text);
+        $scale = 1;
+        if ($antialiasing > 1) {
+            $scale = $antialiasing;
+        }
+
+        $box = imagettfbbox($fontSize * $scale, 0, $fontFile, $text);
         $boxWidth = abs($box[6] - $box[2]);
 
         // Determine cap height
@@ -107,7 +112,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 $dstX = 0;
                 break;
             case 'center':
-                $dstX = (int) (($imageWidth - $boxWidth) / 2);
+                $dstX = (int) (($imageWidth - $boxWidth / $scale) / 2);
                 break;
             case 'right':
             default:
@@ -131,7 +136,7 @@ class rex_effect_insert_text extends rex_effect_abstract
 
         if ($antialiasing > 0) {
             // Create temp image
-            $gdTemp = imagecreatetruecolor($boxWidth * $antialiasing, $boxHeight * $antialiasing);
+            $gdTemp = imagecreatetruecolor($boxWidth * $scale, $boxHeight * $scale);
 
             // Fill transparent
             imagefill($gdTemp, 0, 0, imagecolortransparent($gdTemp));
@@ -139,10 +144,10 @@ class rex_effect_insert_text extends rex_effect_abstract
             // Write text
             imagettftext(
                 $gdTemp,
-                $fontSize * $antialiasing,
+                $fontSize * $scale,
                 0,
                 0,
-                ($boxHeight - $fixHeight) * $antialiasing,
+                ($boxHeight - $fixHeight) * $scale,
                 imagecolorallocatealpha($gdTemp, $color[0], $color[1], $color[2], $alpha),
                 $fontFile,
                 $text
@@ -158,8 +163,8 @@ class rex_effect_insert_text extends rex_effect_abstract
                 0,
                 $boxWidth,
                 $boxHeight,
-                $boxWidth * $antialiasing,
-                $boxHeight * $antialiasing
+                $boxWidth * $scale,
+                $boxHeight * $scale
             );
 
             // Free memory
@@ -184,7 +189,7 @@ class rex_effect_insert_text extends rex_effect_abstract
 
     /**
      * Get value from meta field in mediapool
-     * @param string $field Name eof field
+     * @param string $field Name of field
      * @return string Value of field
      */
     public function getMeta($field = 'title')
@@ -323,7 +328,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_antialiasing'),
                 'name' => 'antialiasing',
                 'type' => 'select',
-                'options' => range(0, 10),
+                'options' => range(0, 6),
                 'default' => 0,
                 'attributes' => ['class' => 'selectpicker form-control'],
             ],
