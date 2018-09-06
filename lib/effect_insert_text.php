@@ -3,7 +3,7 @@
 class rex_effect_insert_text extends rex_effect_abstract
 {
     /**
-     *
+     * Generate image
      */
     public function execute()
     {
@@ -17,7 +17,7 @@ class rex_effect_insert_text extends rex_effect_abstract
 
         $gdImage = $this->media->getImage();
 
-        // Transparenz erhalten (für GIF, PNG & WebP)
+        // Keep transparency (for GIF, PNG & WebP)
         $this->keepTransparent($gdImage);
 
         // Text
@@ -31,13 +31,13 @@ class rex_effect_insert_text extends rex_effect_abstract
             $text = static::getMeta($this->params['text_source']);
         }
 
-        // Schriftgröße
+        // Font size
         $fontSize = 24;
         if (isset($this->params['font_size'])) {
             $fontSize = (int) $this->params['font_size'];
         }
 
-        // Farbe
+        // Color
         $color = [0, 0, 0];
         if (isset($this->params['color_r'])) {
             $color[0] = (int) $this->params['color_r'];
@@ -57,7 +57,7 @@ class rex_effect_insert_text extends rex_effect_abstract
             $alpha = (int) $this->params['alpha'];
         }
 
-        // Abstand vom Rand
+        // Padding
         $padding = [0, 0];
         if (isset($this->params['padding_x'])) {
             $padding[0] = (int) $this->params['padding_x'];
@@ -68,12 +68,12 @@ class rex_effect_insert_text extends rex_effect_abstract
         }
 
         $position = ['right', 'bottom'];
-        // Horizontale Ausrichtung: left/center/right
+        // Horizontal align: left/center/right
         if (isset($this->params['hpos'])) {
             $position[0] = (string) $this->params['hpos'];
         }
 
-        // Vertikale Ausrichtung:   top/center/bottom
+        // Vertical align:   top/center/bottom
         if (isset($this->params['vpos'])) {
             $position[1] = (string) $this->params['vpos'];
         }
@@ -180,7 +180,9 @@ class rex_effect_insert_text extends rex_effect_abstract
     }
 
     /**
-     * @return string
+     * Get value from meta field in mediapool
+     * @param string $field Name eof field
+     * @return string Value of field
      */
     public function getMeta($field = 'title')
     {
@@ -192,8 +194,8 @@ class rex_effect_insert_text extends rex_effect_abstract
     }
 
     /**
+     * Get list of meta fields in mediapool plus 'input'
      * @return array
-     * @throws rex_sql_exception
      */
     public function getMetaFields() {
 
@@ -213,6 +215,7 @@ class rex_effect_insert_text extends rex_effect_abstract
     }
 
     /**
+     * Generate form input fields in Redaxo backend
      * @return array
      */
     public function getParams()
@@ -327,6 +330,7 @@ class rex_effect_insert_text extends rex_effect_abstract
     }
 
     /**
+     * Get name of plugin
      * @return string
      */
     public function getName()
