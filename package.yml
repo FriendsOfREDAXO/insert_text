@@ -1,0 +1,9 @@
+package: insert_text
+version: '0.1.0'
+author: Michael Ziem
+supportpage: ziem.io
+
+requires:
+    redaxo: '^5.0'
+    packages:
+        media_manager: '^2.5'
