@@ -203,6 +203,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'type' => 'int',
                 'default' => 0,
                 'attributes' => ['pattern' => '[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]'],
+                'suffix' => '<small class="form-text text-muted">0 - 255</small>',
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_color_g'),
@@ -210,6 +211,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'type' => 'int',
                 'default' => 0,
                 'attributes' => ['pattern' => '[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]'],
+                'suffix' => '<small class="form-text text-muted">0 - 255</small>',
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_color_b'),
@@ -217,6 +219,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'type' => 'int',
                 'default' => 0,
                 'attributes' => ['pattern' => '[01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]'],
+                'suffix' => '<small class="form-text text-muted">0 - 255</small>',
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_hpos'),
