@@ -21,9 +21,14 @@ class rex_effect_insert_text extends rex_effect_abstract
         $this->keepTransparent($gdImage);
 
         // Text
-        $text = 'Text einfügen';
-        if (isset($this->params['text'])) {
+        $text = 'Hello World';
+
+        if (($this->params['text_source'] === 'input') && isset($this->params['text'])) {
+            // Take text from input field
             $text = (string) $this->params['text'];
+        } else if (isset($this->params['text_source'])) {
+            // Take text from meta field in mediapool
+            $text = static::getMeta($this->params['text_source']);
         }
 
         // Schriftgröße
@@ -175,7 +180,40 @@ class rex_effect_insert_text extends rex_effect_abstract
     }
 
     /**
-     * @return array|void
+     * @return string
+     */
+    public function getMeta($field = 'title')
+    {
+        $mediaName = $this->media->getMediaFilename();
+
+        $media = rex_media::get($mediaName);
+
+        return $media->getValue($field);
+    }
+
+    /**
+     * @return array
+     * @throws rex_sql_exception
+     */
+    public function getMetaFields() {
+
+        if (rex_addon::get('metainfo')->isAvailable()) {
+            $sql = rex_sql::factory();
+
+            $sql->setQuery('SELECT name FROM ' . rex::getTablePrefix() . 'metainfo_field WHERE `name` LIKE "med_%" ORDER BY priority');
+
+            $result = $sql->getArray();
+
+            $list = array_merge(['input', 'title'], array_column($result, 'name'));
+
+            return $list;
+        }
+
+        return ['input'];
+    }
+
+    /**
+     * @return array
      */
     public function getParams()
     {
@@ -186,6 +224,15 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'type' => 'string',
                 'default' => '',
                 'attributes' => ['required' => 'required'],
+            ],
+            [
+                'label' => rex_i18n::msg('media_manager_effect_insert_text_source'),
+                'name' => 'text_source',
+                'type' => 'select',
+                'options' => static::getMetaFields(),
+                'default' => 'custom',
+                'attributes' => ['class' => 'selectpicker form-control'],
+                'suffix' => '<small class="form-text text-muted">'.rex_i18n::msg('media_manager_effect_insert_text_hint').'</small>',
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_font_size'),

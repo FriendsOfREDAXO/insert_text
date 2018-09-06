@@ -1,6 +1,7 @@
 media_manager_effect_insert_text_name = Bild: Insert Text
 
 media_manager_effect_insert_text_text = Text
+media_manager_effect_insert_text_source = Textquelle
 media_manager_effect_insert_text_font_size = Schriftgröße
 media_manager_effect_insert_text_font_file = Schriftdatei
 media_manager_effect_insert_text_color_r = Schriftfarbe (Rot)
@@ -12,3 +13,5 @@ media_manager_effect_insert_text_vpos = Vertikale Ausrichtung
 media_manager_effect_insert_text_padding_x = Horizontaler Abstand zum Rand
 media_manager_effect_insert_text_padding_y = Vertikaler Abstand zum Rand
 media_manager_effect_insert_text_antialiasing = Schriftglättung
+
+media_manager_effect_insert_text_hint = Text aus dem Inputfeld / Text aus einem Metafeld des Medienpools
