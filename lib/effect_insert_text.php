@@ -173,45 +173,45 @@ class rex_effect_insert_text extends rex_effect_abstract
      */
     public function getParams()
     {
-        return [
+        $params =  [
             [
-                'label' => 'Text',
+                'label' => rex_i18n::msg('media_manager_effect_insert_text_text'),
                 'name' => 'text',
                 'type' => 'string',
                 'default' => '',
             ],
             [
-                'label' => 'Schriftgröße',
+                'label' => rex_i18n::msg('media_manager_effect_insert_text_font_size'),
                 'name' => 'font_size',
                 'type' => 'int',
                 'default' => 12,
             ],
             [
-                'label' => 'Schriftdatei',
+                'label' => rex_i18n::msg('media_manager_effect_insert_text_font_file'),
                 'name' => 'font_file',
                 'type' => 'media',
                 'default' => '',
             ],
             [
-                'label' => rex_i18n::msg('media_manager_effect_colorize_r'),
+                'label' => rex_i18n::msg('media_manager_effect_insert_text_color_r'),
                 'name' => 'color_r',
                 'type' => 'int',
                 'default' => 0,
             ],
             [
-                'label' => rex_i18n::msg('media_manager_effect_colorize_g'),
+                'label' => rex_i18n::msg('media_manager_effect_insert_text_color_g'),
                 'name' => 'color_g',
                 'type' => 'int',
                 'default' => 0,
             ],
             [
-                'label' => rex_i18n::msg('media_manager_effect_colorize_b'),
+                'label' => rex_i18n::msg('media_manager_effect_insert_text_color_b'),
                 'name' => 'color_b',
                 'type' => 'int',
                 'default' => 0,
             ],
             [
-                'label' => rex_i18n::msg('media_manager_effect_brand_hpos'),
+                'label' => rex_i18n::msg('media_manager_effect_insert_text_hpos'),
                 'name' => 'hpos',
                 'type' => 'select',
                 'options' => ['left', 'center', 'right'],
@@ -219,7 +219,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'attributes' => ['class' => 'selectpicker form-control'],
             ],
             [
-                'label' => rex_i18n::msg('media_manager_effect_brand_vpos'),
+                'label' => rex_i18n::msg('media_manager_effect_insert_text_vpos'),
                 'name' => 'vpos',
                 'type' => 'select',
                 'options' => ['top', 'middle', 'bottom'],
@@ -227,19 +227,19 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'attributes' => ['class' => 'selectpicker form-control'],
             ],
             [
-                'label' => rex_i18n::msg('media_manager_effect_brand_padding_x'),
+                'label' => rex_i18n::msg('media_manager_effect_insert_text_padding_x'),
                 'name' => 'padding_x',
                 'type' => 'int',
                 'default' => 0,
             ],
             [
-                'label' => rex_i18n::msg('media_manager_effect_brand_padding_y'),
+                'label' => rex_i18n::msg('media_manager_effect_insert_text_padding_y'),
                 'name' => 'padding_y',
                 'type' => 'int',
                 'default' => 0,
             ],
             [
-                'label' => 'Antialiasing',
+                'label' => rex_i18n::msg('media_manager_effect_insert_text_antialiasing'),
                 'name' => 'antialiasing',
                 'type' => 'select',
                 'options' => range(0, 10),
@@ -247,6 +247,8 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'attributes' => ['class' => 'selectpicker form-control'],
             ],
         ];
+
+        return $params;
     }
 
     /**
@@ -254,6 +256,6 @@ class rex_effect_insert_text extends rex_effect_abstract
      */
     public function getName()
     {
-        return 'Bild: Insert Text';
+        return rex_i18n::msg('media_manager_effect_insert_text_name');
     }
 }
