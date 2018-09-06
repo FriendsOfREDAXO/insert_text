@@ -126,12 +126,15 @@ class rex_effect_insert_text extends rex_effect_abstract
                 $dstY = $imageHeight - $boxHeight;
         }
 
+        // Set blending mode
+        imagealphablending($gdImage, true);
+
         if ($antialiasing > 0) {
             // Create temp image
             $gdTemp = imagecreatetruecolor($boxWidth * $antialiasing, $boxHeight * $antialiasing);
 
             // Fill transparent
-            imagefill($gdTemp, 0, 0, imagecolorallocatealpha($gdTemp, 255, 255, 255, 127));
+            imagefill($gdTemp, 0, 0, imagecolortransparent($gdTemp));
 
             // Write text
             imagettftext(
