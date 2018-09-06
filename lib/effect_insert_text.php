@@ -307,14 +307,14 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'name' => 'padding_x',
                 'type' => 'int',
                 'default' => 0,
-                'attributes' => ['pattern' => '[0-9]+'],
+                'attributes' => ['pattern' => '-?[0-9]+'],
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_padding_y'),
                 'name' => 'padding_y',
                 'type' => 'int',
                 'default' => 0,
-                'attributes' => ['pattern' => '[0-9]+'],
+                'attributes' => ['pattern' => '-?[0-9]+'],
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_antialiasing'),
