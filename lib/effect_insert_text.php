@@ -259,7 +259,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_font_file'),
                 'name' => 'font_file',
                 'type' => 'media',
-                'default' => '',
+                'default' => 'oswald-bold.ttf',
                 'suffix' => '<small class="form-text text-muted">.ttf, .otf</small>',
             ],
             [
