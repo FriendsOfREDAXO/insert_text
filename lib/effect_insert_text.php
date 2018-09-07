@@ -290,7 +290,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_alpha'),
                 'name' => 'alpha',
                 'type' => 'int',
-                'default' => 127,
+                'default' => 0,
                 'attributes' => ['pattern' => '[0-9]|[0-9][0-9]|1[0-2][0-7]'],
                 'suffix' => '<small class="form-text text-muted">0 - 127</small>',
             ],
