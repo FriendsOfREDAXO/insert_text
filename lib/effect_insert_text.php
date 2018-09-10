@@ -94,12 +94,16 @@ class rex_effect_insert_text extends rex_effect_abstract
         $box = imagettfbbox($fontSize * $scale, 0, $fontFile, $text);
         $boxWidth = abs($box[6] - $box[2]);
 
+        // Count lines in given text
+        $countLines = static::getLinesCount($text);
+
         // Determine cap height
         $box = imagettfbbox($fontSize, 0, $fontFile, 'X É');
         $capHeight = abs($box[7] - $box[1]);
 
         // Determine descender height
-        $box = imagettfbbox($fontSize, 0, $fontFile, 'X Égjpqy');
+        $testText = str_repeat('X Égjpqy'.PHP_EOL, $countLines);
+        $box = imagettfbbox($fontSize, 0, $fontFile, $testText);
         $boxHeight = abs($box[7] - $box[1]);
 
         $fixHeight = $boxHeight - $capHeight;
@@ -220,6 +224,19 @@ class rex_effect_insert_text extends rex_effect_abstract
         }
 
         return ['input'];
+    }
+
+    /**
+     * Count linebreaks in a given string
+     * @param string $text
+     * @return int
+     */
+    public function getLinesCount($text = '') {
+        // Split string to array of lines
+        $lines = preg_split('/\r\n|\r|\n/', $text);
+
+        // Count lines
+        return count($lines);
     }
 
     /**
