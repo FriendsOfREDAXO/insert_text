@@ -2,6 +2,7 @@ package: insert_text
 version: '1.1.1'
 author: Michael Ziem
 supportpage: ziem.io
+name: Insert Text
 
 requires:
     redaxo: '^5.0'
