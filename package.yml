@@ -1,8 +1,8 @@
 package: insert_text
 version: '1.1.1'
-author: Michael Ziem
-supportpage: ziem.io
 name: Insert Text
+author: Friends Of REDAXO
+supportpage: https://github.com/FriendsOfREDAXO/redaxo-insert_text
 
 requires:
     redaxo: '^5.0'
