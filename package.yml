@@ -1,10 +1,10 @@
 package: insert_text
-version: '1.2.1'
+version: "1.2.1"
 name: Insert Text
 author: Friends Of REDAXO
 supportpage: https://github.com/FriendsOfREDAXO/insert_text
 
 requires:
-    redaxo: '^5.0'
-    packages:
-        media_manager: '^2.5'
+  redaxo: "^5.0"
+  packages:
+    media_manager: "^2.5"
