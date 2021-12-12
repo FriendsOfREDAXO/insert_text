@@ -226,7 +226,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 break;
             case 'right':
             default:
-                $dstX = (int) ($imageWidth - $the_box['width'] - $bgpadding);
+                $dstX = (int) ($imageWidth - $the_box['width'] - $bgpadding*2);
         }
 
         // Vertical Position
@@ -239,7 +239,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 break;
             case 'bottom':
             default:
-                $dstY = (int) ($imageHeight - $the_box['height'] - $bgpadding);
+                $dstY = (int) ($imageHeight - $the_box['height'] - $bgpadding*2);
         }
 
         // Set blending mode
