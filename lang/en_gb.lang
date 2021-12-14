@@ -9,7 +9,7 @@ media_manager_effect_insert_text_font_file = Font file
 media_manager_effect_insert_text_font_file_info = Font file .ttf or .otf
 
 media_manager_effect_insert_text_color = Font color
-media_manager_effect_insert_text_color_info = Color value: #fff, #ffffff or r,g,b,a e.g. 255,0,0,20
+media_manager_effect_insert_text_color_info = Color value: #fff, #ffffff or r,g,b,a e.g. 255,0,0,20<br>(alpha value of gdlib 0-127, 0 means completely opaque, while 127 means completely transparent)
 
 media_manager_effect_insert_text_hpos = Horizontal position
 media_manager_effect_insert_text_vpos = Vertical position
@@ -21,10 +21,10 @@ media_manager_effect_insert_text_antialiasing = Font smoothing
 media_manager_effect_insert_text_antialiasing_info = 0=without font smoothing, 1=Standard font smoothing, >1 requires a lot of resources!
 
 media_manager_effect_insert_text_shadowcolor = Color text shadow
-media_manager_effect_insert_text_shadowcolor_info = Color value: #fff, #ffffff or r,g,b,a e.g. 255,0,0,20
+media_manager_effect_insert_text_shadowcolor_info = Color value: #fff, #ffffff or r,g,b,a e.g. 255,0,0,20<br>(alpha value of gdlib 0-127, 0 means completely opaque, while 127 means completely transparent)
 
 media_manager_effect_insert_text_bgcolor = Color text background
-media_manager_effect_insert_text_bgcolor_info = Color value: #fff, #ffffff or r,g,b,a e.g. 255,0,0,20
+media_manager_effect_insert_text_bgcolor_info = Color value: #fff, #ffffff or r,g,b,a e.g. 255,0,0,20<br>(alpha value of gdlib 0-127, 0 means completely opaque, while 127 means completely transparent)
 
 media_manager_effect_insert_text_bgpadding = Padding text background
 media_manager_effect_insert_text_bgpadding_info = Distance to the text for all 4 sides

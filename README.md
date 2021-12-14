@@ -25,20 +25,22 @@ Die folgenden Parameter können für den Effekt eingestellt werden.
 
 Die beim Effekt eingestellten Werte gelten als "Default" und können bei Bedarf über die [**Effekt-Parameter in Meta-Daten**](#metaconfig) für jedes Bild individuell geändert werden.
 
+> **Hinweis:** Bei RGBA für die Farben ist nicht CSS-RGBA gemeint, sondern der RGBA-Wert für GD! Siehe https://www.php.net/manual/de/function.imagecolorallocatealpha.php
+
 | Parameter | Beschreibung / Mögliche Werte  |
 |---|---|
 | **Textausgabe** | Text der auf dem Bild ausgegeben wird. |
 | **Textquelle** | Hier kann die Textquelle des Effekts ausgewählt werden. `input` für das Feld `Textausgabe` **oder** ein beliebiges Meta-Feld aus dem Medienpool.<br>Es kann auch eine Textarea aus dem Medienpool ausgewählt werden die noch weitere Möglichkeiten zu diesem Effekt eröffnet (siehe [hier](#metaconfig)) |
 | **Schriftgröße** | Ausgabe-Größe für den Text (einfach bisserl rumprobieren!)|
 | **Schriftdatei** | Hier kann eine beliebige Font-Datei (.ttf, .otf) aus dem Medienpool ausgewählt werden |
-| **Schriftfarbe** | Farbe für die Text-Ausgabe<br>Die Schriftfarbe kann in zwei verschiedenen Formaten angegeben werden:<br>1) Hex-Farbwert ohne Alpha-Transzparenz z.B. `#fff` oder `#ffffff` <br>2) RGBA-Wert mit Alpha-Transparenz z.B. `255,255,255,66` |
+| **Schriftfarbe** | Farbe für die Text-Ausgabe<br>Die Schriftfarbe kann in zwei verschiedenen Formaten angegeben werden:<br>1) Hex-Farbwert ohne Alpha-Transzparenz z.B. `#fff` oder `#ffffff` <br>2) RGBA-Wert (GD) mit Alpha-Transparenz z.B. `255,255,255,66` |
 | **Horizontale Ausrichtung** | Horizontale Ausrichtung des Textes.<br>Mögliche Werte: `left` `center` `right` |
 | **Vertikale Ausrichtung** | Vertikale Ausrichtung des Textes.<br>Mögliche Werte: `top` `middle` `bottom` |
 | **Horizontaler Abstand zum Rand** | Horizontaler Abstand des Textes zum Rand (es sind auch negative Werte möglich) |
 | **Vertikaler Abstand zum Rand** | Vertikaler Abstand des Textes zum Rand (es sind auch negative Werte möglich) |
-| **Schriftglättung** | Schriftglättung für die Textausgabe<br>Mögliche Werte: `0` bis `5`<br>`0` = ohne Schriftglättung (Pfui!)<br>`1` = Standard (normalerweise ausreichend)<br>**Achtung:** ein Wert größer 1 benötigt latürnich mehr Ressourcen! |
-| **Farbe Text-Schatten** | Der Text kann auch mit einem Schatten versehen werden<br>Die Farbe für den Schatten kann in zwei verschiedenen Formaten angegeben werden:<br>1) Hex-Farbwert ohne Alpha-Transzparenz z.B. `#fff` oder `#ffffff` <br>2) RGBA-Wert mit Alpha-Transparenz z.B. `255,255,255,66` |
-| **Farbe Text-Hintergrund** | Text mit einer Hintergrundfarbe unterlegen<br>Die Hintergrundfarbe kann in zwei verschiedenen Formaten angegeben werden:<br>1) Hex-Farbwert ohne Alpha-Transzparenz z.B. `#fff` oder `#ffffff` <br>2) RGBA-Wert mit Alpha-Transparenz z.B. `255,255,255,66` |
+| **Schriftglättung** | Schriftglättung für die Textausgabe<br>Mögliche Werte: `0` bis `5`<br>`0` = ohne Schriftglättung (Pfui!)<br>`1` = Standard (normalerweise ausreichend)<br>**Achtung:** ein Wert größer 1 benötigt natürlich mehr Ressourcen! |
+| **Farbe Text-Schatten** | Der Text kann auch mit einem Schatten versehen werden<br>Die Farbe für den Schatten kann in zwei verschiedenen Formaten angegeben werden:<br>1) Hex-Farbwert ohne Alpha-Transzparenz z.B. `#fff` oder `#ffffff` <br>2) RGBA-Wert (GD) mit Alpha-Transparenz z.B. `255,255,255,66` |
+| **Farbe Text-Hintergrund** | Text mit einer Hintergrundfarbe unterlegen<br>Die Hintergrundfarbe kann in zwei verschiedenen Formaten angegeben werden:<br>1) Hex-Farbwert ohne Alpha-Transzparenz z.B. `#fff` oder `#ffffff` <br>2) RGBA-Wert (GD) mit Alpha-Transparenz z.B. `255,255,255,66` |
 | **Padding Text-Hintergrund** | Hier kann der Seitenabstand der Schrift zum farbigen Hintergrund festgelegt werden<br>Mögliche Werte: z.B. `10` (auch hier bei Bedarf bisserl probieren)|
 | **Textdrehung** | Der Text kann auch "gedreht" ausgegeben werden.<br>Mögliche Werte: `0` bis `360` (nachdenken!)<br>positiver Wert: Drehung nach Links<br>negativer Wert: Drehung nach Rechts |
 

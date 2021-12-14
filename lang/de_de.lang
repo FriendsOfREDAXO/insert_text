@@ -9,7 +9,7 @@ media_manager_effect_insert_text_font_file = Schriftdatei
 media_manager_effect_insert_text_font_file_info = Schriftartendatei .ttf oder .otf
 
 media_manager_effect_insert_text_color = Schriftfarbe
-media_manager_effect_insert_text_color_info = Farbwert: #fff, #ffffff oder r,g,b,a z.B. 255,0,0,20
+media_manager_effect_insert_text_color_info = Farbwert: #fff, #ffffff oder r,g,b,a z.B. 255,0,0,20 <br>(alpha-Wert der gdlib 0-127, 0 bedeutet vollständig undurchsichtig, während 127 vollständig transparent bedeutet)
 
 media_manager_effect_insert_text_hpos = Horizontale Ausrichtung
 media_manager_effect_insert_text_vpos = Vertikale Ausrichtung
@@ -21,10 +21,10 @@ media_manager_effect_insert_text_antialiasing = Schriftglättung
 media_manager_effect_insert_text_antialiasing_info = 0=ohne Schriftglättung, 1=Standard Schriftglättung, >1 benötigt viel Ressourcen!
 
 media_manager_effect_insert_text_shadowcolor = Farbe Text-Schatten
-media_manager_effect_insert_text_shadowcolor_info = Farbwert: #fff, #ffffff oder r,g,b,a z.B. 255,0,0,20
+media_manager_effect_insert_text_shadowcolor_info = Farbwert: #fff, #ffffff oder r,g,b,a z.B. 255,0,0,20 <br>(alpha-Wert der gdlib 0-127, 0 bedeutet vollständig undurchsichtig, während 127 vollständig transparent bedeutet)
 
 media_manager_effect_insert_text_bgcolor = Farbe Text-Hintergrund
-media_manager_effect_insert_text_bgcolor_info = Farbwert: #fff, #ffffff oder r,g,b,a z.B. 255,0,0,20
+media_manager_effect_insert_text_bgcolor_info = Farbwert: #fff, #ffffff oder r,g,b,a z.B. 255,0,0,20 <br>(alpha-Wert der gdlib 0-127, 0 bedeutet vollständig undurchsichtig, während 127 vollständig transparent bedeutet)
 
 media_manager_effect_insert_text_bgpadding = Padding Text-Hintergrund
 media_manager_effect_insert_text_bgpadding_info = Abstand zum Text für alle 4 Seiten

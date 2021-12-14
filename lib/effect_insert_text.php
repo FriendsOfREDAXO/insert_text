@@ -399,7 +399,7 @@ class rex_effect_insert_text extends rex_effect_abstract
             $sql = rex_sql::factory();
             $sql->setQuery('SELECT name FROM ' . rex::getTablePrefix() . 'metainfo_field WHERE `name` LIKE "med_%" ORDER BY priority');
             $result = $sql->getArray();
-            $list = array_merge(['input', '---', 'title'], array_column($result, 'name'));
+            $list = array_merge(['input', 'title'], array_column($result, 'name'));
             return $list;
         }
 
@@ -453,10 +453,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'type' => 'select',
                 'options' => static::getMetaFields(),
                 'default' => 'custom',
-                'attributes' => [
-                    'class' => 'selectpicker form-control'
-                ],
-                'suffix' => '<small class="form-text text-muted">'.rex_i18n::msg('media_manager_effect_insert_text_source_hint').'</small>',
+                'notice' => rex_i18n::msg('media_manager_effect_insert_text_source_hint'),
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_font_size'),
@@ -476,14 +473,14 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'attributes' => [
                     'required' => 'required',
                 ],
-                'suffix' => '<small class="form-text text-muted">'.rex_i18n::msg('media_manager_effect_insert_text_font_file_info').'</small>',
+                'notice' => rex_i18n::msg('media_manager_effect_insert_text_font_file_info'),
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_color'),
                 'name' => 'color',
                 'type' => 'string',
                 'default' => '',
-                'suffix' => '<small class="form-text text-muted">'.rex_i18n::msg('media_manager_effect_insert_text_color_info').'</small>',
+                'notice' => rex_i18n::msg('media_manager_effect_insert_text_color_info'),
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_hpos'),
@@ -491,19 +488,13 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'type' => 'select',
                 'options' => ['left', 'center', 'right'],
                 'default' => 'center',
-                'attributes' => [
-                    'class' => 'selectpicker form-control'
-                ],
-            ],
+             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_vpos'),
                 'name' => 'vpos',
                 'type' => 'select',
                 'options' => ['top', 'middle', 'bottom'],
                 'default' => 'top',
-                'attributes' => [
-                    'class' => 'selectpicker form-control'
-                ],
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_padding_x'),
@@ -529,24 +520,21 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'type' => 'select',
                 'options' => range(0, 5),
                 'default' => 1,
-                'attributes' => [
-                    'class' => 'selectpicker form-control'
-                ],
-                'suffix' => '<small class="form-text text-muted">'.rex_i18n::msg('media_manager_effect_insert_text_antialiasing_info').'</small>',
+                'notice' => rex_i18n::msg('media_manager_effect_insert_text_antialiasing_info'),
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_shadowcolor'),
                 'name' => 'shadowcolor',
                 'type' => 'string',
                 'default' => '',
-                'suffix' => '<small class="form-text text-muted">'.rex_i18n::msg('media_manager_effect_insert_text_shadowcolor_info').'</small>',
+                'notice' => rex_i18n::msg('media_manager_effect_insert_text_shadowcolor_info'),
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_bgcolor'),
                 'name' => 'bgcolor',
                 'type' => 'string',
                 'default' => '',
-                'suffix' => '<small class="form-text text-muted">'.rex_i18n::msg('media_manager_effect_insert_text_bgcolor_info').'</small>',
+                'notice' => rex_i18n::msg('media_manager_effect_insert_text_bgcolor_info'),
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_bgpadding'),
@@ -556,7 +544,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'attributes' => [
                     'pattern' => '[0-9]+'
                 ],
-                'suffix' => '<small class="form-text text-muted">'.rex_i18n::msg('media_manager_effect_insert_text_bgpadding_info').'</small>',
+                'notice' => rex_i18n::msg('media_manager_effect_insert_text_bgpadding_info'),
             ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_angle'),
@@ -566,7 +554,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'attributes' => [
                     'pattern' => '-?[0-9]+'
                 ],
-                'suffix' => '<small class="form-text text-muted">'.rex_i18n::msg('media_manager_effect_insert_text_angle_info').'</small>',
+                'notice' => rex_i18n::msg('media_manager_effect_insert_text_angle_info'),
             ],
         ];
 
