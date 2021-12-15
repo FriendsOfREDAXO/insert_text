@@ -185,10 +185,16 @@ class rex_effect_insert_text extends rex_effect_abstract
         // -------------------------------------- /CONFIG
 
         $this->media->asImage();
-        $gdImage = $this->media->getImage();
+        $sourceImage = $this->media->getImage();
 
         // Keep transparency (for GIF, PNG & WebP)
-        $this->keepTransparent($gdImage);
+        $this->keepTransparent($sourceImage);
+
+        // Reset text-angle when background-color is used, save angle for rotate
+        if ($outputbg) {
+            $rotate_angle = $text_angle;
+            $text_angle = 0;
+        }
 
         // Calculate the textbox
         $the_box = $this->calculateTextBox($fontSize, $text_angle, $fontFile, $text);
@@ -215,38 +221,8 @@ class rex_effect_insert_text extends rex_effect_abstract
             }
         }
 
-        // Image-Dimensions
-        $imageWidth = $this->media->getWidth();
-        $imageHeight = $this->media->getHeight();
-
-        // Horizontal position
-        switch ($position[0]) {
-            case 'left':
-                $dstX = 0;
-                break;
-            case 'center':
-                $dstX = (int) (($imageWidth - $the_box['width'] - $bgpadding) / 2);
-                break;
-            case 'right':
-            default:
-                $dstX = (int) ($imageWidth - $the_box['width'] - $bgpadding*2);
-        }
-
-        // Vertical Position
-        switch ($position[1]) {
-            case 'top':
-                $dstY = 0;
-                break;
-            case 'middle':
-                $dstY = (int) (($imageHeight - $the_box['height'] - $bgpadding) / 2);
-                break;
-            case 'bottom':
-            default:
-                $dstY = (int) ($imageHeight - $the_box['height'] - $bgpadding*2);
-        }
-
         // Set blending mode
-        imagealphablending($gdImage, true);
+        imagealphablending($sourceImage, true);
 
         // Create transparent temp image
         $imgWidth = $the_tempbox['width'] + (($bgpadding*2) * $scale);
@@ -302,9 +278,51 @@ class rex_effect_insert_text extends rex_effect_abstract
             $text
         );
 
-        // Copy image / scaled image
+        // Rotate the image when background-color for text is used
+        if ($outputbg) {
+            imagesetinterpolation($gdTemp, IMG_BILINEAR_FIXED);
+            $gdTemp = imagerotate($gdTemp, $rotate_angle, imageColorAllocateAlpha($gdTemp, 0, 0, 0, 127));
+            // get new Image-Size
+            $imgWidth = imagesx($gdTemp);
+            $imgHeight = imagesy($gdTemp);
+            $the_box['width'] = $imgWidth;
+            $the_box['height'] = $imgHeight;
+            $bgpadding = 0;
+        }
+
+        // Source-Image-Dimensions
+        $sourceImageWidth = $this->media->getWidth();
+        $sourceImageHeight = $this->media->getHeight();
+
+        // Horizontal position for the text
+        switch ($position[0]) {
+            case 'left':
+                $dstX = 0;
+                break;
+            case 'center':
+                $dstX = (int) (($sourceImageWidth - $the_box['width'] - $bgpadding) / 2);
+                break;
+            case 'right':
+            default:
+                $dstX = (int) ($sourceImageWidth - $the_box['width'] - $bgpadding*2);
+        }
+
+        // Vertical Position for the text
+        switch ($position[1]) {
+            case 'top':
+                $dstY = 0;
+                break;
+            case 'middle':
+                $dstY = (int) (($sourceImageHeight - $the_box['height'] - $bgpadding) / 2);
+                break;
+            case 'bottom':
+            default:
+                $dstY = (int) ($sourceImageHeight - $the_box['height'] - $bgpadding*2);
+        }
+
+        // Copy image / scaled image / rotated image to source
         imagecopyresampled(
-            $gdImage,
+            $sourceImage,
             $gdTemp,
             $dstX + $padding[0],
             $dstY + $padding[1],
@@ -319,7 +337,7 @@ class rex_effect_insert_text extends rex_effect_abstract
         // Free memory
         imagedestroy($gdTemp);
 
-        $this->media->setImage($gdImage);
+        $this->media->setImage($sourceImage);
     }
 
     /**
