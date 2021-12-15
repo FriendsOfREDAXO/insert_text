@@ -45,6 +45,9 @@ class rex_effect_insert_text extends rex_effect_abstract
                 return;
             }
         }
+        if (!$text) {
+            return;
+        }
 
         // Font size
         $fontSize = 30;
