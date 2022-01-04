@@ -95,22 +95,22 @@ class rex_effect_insert_text extends rex_effect_abstract
             $position[1] = (string) $txtparams[4];
         }
 
-        // Default Padding
-        $padding = [0, 30];
+        // Default Margin
+        $margin = [0, 30];
 
         // Padding
         if (isset($this->params['padding_x']) && $this->params['padding_x'] <> '') {
-            $padding[0] = (int) $this->params['padding_x'];
+            $margin[0] = (int) $this->params['padding_x'];
         }
         if (isset($txtparams[5]) && $txtparams[5] <> '') {
-            $padding[0] = (int) $txtparams[5];
+            $margin[0] = (int) $txtparams[5];
         }
 
         if (isset($this->params['padding_y']) && $this->params['padding_y'] <> '') {
-            $padding[1] = (int) $this->params['padding_y'];
+            $margin[1] = (int) $this->params['padding_y'];
         }
         if (isset($txtparams[6]) && $txtparams[6] <> '') {
-            $padding[1] = (int) $txtparams[6];
+            $margin[1] = (int) $txtparams[6];
         }
 
         // Antialiasing
@@ -318,8 +318,8 @@ class rex_effect_insert_text extends rex_effect_abstract
         imagecopyresampled(
             $sourceImage,
             $gdTemp,
-            $dstX + $padding[0],
-            $dstY + $padding[1],
+            $dstX + $margin[0],
+            $dstY + $margin[1],
             0,
             0,
             $the_box['width'] + ($bgpadding*2),
