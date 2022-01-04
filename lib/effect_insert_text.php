@@ -285,8 +285,8 @@ class rex_effect_insert_text extends rex_effect_abstract
             // get new Image-Size
             $imgWidth = imagesx($gdTemp);
             $imgHeight = imagesy($gdTemp);
-            $the_box['width'] = $imgWidth;
-            $the_box['height'] = $imgHeight;
+            $the_box['width'] = $imgWidth / $scale;
+            $the_box['height'] = $imgHeight / $scale;
             $bgpadding = 0;
         }
 
