@@ -247,9 +247,6 @@ class rex_effect_insert_text extends rex_effect_abstract
         // Write text shadow
         if ($outputshadow) {
             $col = imagecolorallocatealpha($gdTemp, $shadowcolor[0], $shadowcolor[1], $shadowcolor[2], $shadowalpha);
-            if ($antialiasing === 0) {
-                $col = -$col;
-            }
             imagettftext(
                 $gdTemp,
                 $fontSize * $scale,
@@ -264,9 +261,6 @@ class rex_effect_insert_text extends rex_effect_abstract
 
         // Write text
         $col = imagecolorallocatealpha($gdTemp, $color[0], $color[1], $color[2], $alpha);
-        if ($antialiasing === 0) {
-            $col = -$col;
-        }
         imagettftext(
             $gdTemp,
             $fontSize * $scale,
@@ -509,7 +503,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'type' => 'select',
                 'options' => ['left', 'center', 'right'],
                 'default' => 'center',
-             ],
+            ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_vpos'),
                 'name' => 'vpos',
