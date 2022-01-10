@@ -95,22 +95,22 @@ class rex_effect_insert_text extends rex_effect_abstract
             $position[1] = (string) $txtparams[4];
         }
 
-        // Default Padding
-        $padding = [0, 30];
+        // Default Margin
+        $margin = [0, 30];
 
         // Padding
         if (isset($this->params['padding_x']) && $this->params['padding_x'] <> '') {
-            $padding[0] = (int) $this->params['padding_x'];
+            $margin[0] = (int) $this->params['padding_x'];
         }
         if (isset($txtparams[5]) && $txtparams[5] <> '') {
-            $padding[0] = (int) $txtparams[5];
+            $margin[0] = (int) $txtparams[5];
         }
 
         if (isset($this->params['padding_y']) && $this->params['padding_y'] <> '') {
-            $padding[1] = (int) $this->params['padding_y'];
+            $margin[1] = (int) $this->params['padding_y'];
         }
         if (isset($txtparams[6]) && $txtparams[6] <> '') {
-            $padding[1] = (int) $txtparams[6];
+            $margin[1] = (int) $txtparams[6];
         }
 
         // Antialiasing
@@ -247,9 +247,6 @@ class rex_effect_insert_text extends rex_effect_abstract
         // Write text shadow
         if ($outputshadow) {
             $col = imagecolorallocatealpha($gdTemp, $shadowcolor[0], $shadowcolor[1], $shadowcolor[2], $shadowalpha);
-            if ($antialiasing === 0) {
-                $col = -$col;
-            }
             imagettftext(
                 $gdTemp,
                 $fontSize * $scale,
@@ -264,9 +261,6 @@ class rex_effect_insert_text extends rex_effect_abstract
 
         // Write text
         $col = imagecolorallocatealpha($gdTemp, $color[0], $color[1], $color[2], $alpha);
-        if ($antialiasing === 0) {
-            $col = -$col;
-        }
         imagettftext(
             $gdTemp,
             $fontSize * $scale,
@@ -285,8 +279,8 @@ class rex_effect_insert_text extends rex_effect_abstract
             // get new Image-Size
             $imgWidth = imagesx($gdTemp);
             $imgHeight = imagesy($gdTemp);
-            $the_box['width'] = $imgWidth;
-            $the_box['height'] = $imgHeight;
+            $the_box['width'] = $imgWidth / $scale;
+            $the_box['height'] = $imgHeight / $scale;
             $bgpadding = 0;
         }
 
@@ -324,8 +318,8 @@ class rex_effect_insert_text extends rex_effect_abstract
         imagecopyresampled(
             $sourceImage,
             $gdTemp,
-            $dstX + $padding[0],
-            $dstY + $padding[1],
+            $dstX + $margin[0],
+            $dstY + $margin[1],
             0,
             0,
             $the_box['width'] + ($bgpadding*2),
@@ -509,7 +503,7 @@ class rex_effect_insert_text extends rex_effect_abstract
                 'type' => 'select',
                 'options' => ['left', 'center', 'right'],
                 'default' => 'center',
-             ],
+            ],
             [
                 'label' => rex_i18n::msg('media_manager_effect_insert_text_vpos'),
                 'name' => 'vpos',
