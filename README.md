@@ -15,8 +15,6 @@ Im Beispiel oben der Effekt mit Font `a song for jennifer`, ein paar extra Leerz
 
 > **Hinweis:** Für optimale Ergebnisse und Schonung der Ressourcen bei großen Bildern sollten zuerst die Effekte `Bild: Skalieren`, `Bild: Beschneiden` usw. angewendet werden.
 
-(Markdown mag keine zwei Hinweise hintereinander, darum hier dieser sinnlose Text den Du trotzdem gelesen hast)
-
 > **Noch ein Hinweis:** Ausgabe im Format PNG/WEBP erzielt bessere Ergebnisse als JPG. Effekt `Bild: In JPEG/PNG/GIF/WEBP konvertieren`.
 
 ## Effekt-Parameter
