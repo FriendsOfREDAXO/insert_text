@@ -328,9 +328,6 @@ class rex_effect_insert_text extends rex_effect_abstract
             $imgHeight
         );
 
-        // Free memory
-        imagedestroy($gdTemp);
-
         $this->media->setImage($sourceImage);
     }
 
@@ -382,8 +379,7 @@ class rex_effect_insert_text extends rex_effect_abstract
             }
         }
 
-        // destroy img and serve the result
-        imagedestroy($img);
+        // serve the result
         return array(
             'left' => $left - $rleft,
             'top' => $top - $rtop,
